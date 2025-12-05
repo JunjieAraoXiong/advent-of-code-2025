@@ -362,40 +362,22 @@ def verify_example_part2():
 
 if __name__ == "__main__":
     import sys
+    import os
+
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    input_file = os.path.join(script_dir, "inputs.txt")
 
     # Check for visualization flag
     show_visual = '--visual' in sys.argv or '-v' in sys.argv
 
     if show_visual:
-        # Run visual walkthrough of the example
         visualize_example()
-        print("\n")
+        print()
 
-    # Verify Part 1 with example
-    print("=" * 50)
-    print("PART 1")
-    print("=" * 50)
-    if verify_example():
-        print("\nExample passed! Running on actual input...\n")
-    else:
-        print("\nExample FAILED! Check the logic.\n")
-
-    result1 = solve_part1("inputs.txt")
-    print(f"Part 1 Answer: {result1}")
-    print(f"  (Number of accessible rolls of paper)")
-
-    # Verify Part 2 with example
-    print("\n" + "=" * 50)
-    print("PART 2")
-    print("=" * 50)
-    if verify_example_part2():
-        print("\nExample passed! Running on actual input...\n")
-    else:
-        print("\nExample FAILED! Check the logic.\n")
-
-    result2 = solve_part2("inputs.txt", visualize=show_visual)
-    print(f"Part 2 Answer: {result2}")
-    print(f"  (Total rolls that can be removed)")
+    print("Day 4: Printing Department")
+    print("-" * 30)
+    print(f"Part 1: {solve_part1(input_file)}")
+    print(f"Part 2: {solve_part2(input_file, visualize=False)}")
 
     if not show_visual:
-        print("\nTip: Run with --visual or -v flag to see step-by-step visualization")
+        print("\nTip: Run with --visual flag for step-by-step visualization")

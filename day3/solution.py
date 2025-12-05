@@ -114,35 +114,11 @@ def solve_part2(input_file):
 
 
 if __name__ == "__main__":
-    # Test with example
-    example = [
-        "987654321111111",
-        "811111111111119",
-        "234234234234278",
-        "818181911112111"
-    ]
+    import os
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    input_file = os.path.join(script_dir, "inputs.txt")
 
-    print("=== Part 1 Example ===")
-    example_total = 0
-    for bank in example:
-        mj = max_joltage_k(bank, 2)
-        print(f"{bank}: {mj}")
-        example_total += mj
-    print(f"Example total: {example_total}")
-    print()
-
-    print("=== Part 2 Example ===")
-    example_total_p2 = 0
-    for bank in example:
-        mj = max_joltage_k(bank, 12)
-        print(f"{bank}: {mj}")
-        example_total_p2 += mj
-    print(f"Example total: {example_total_p2}")
-    print()
-
-    # Solve actual puzzle
-    result1 = solve_part1("inputs.txt")
-    print(f"Part 1: {result1}")
-
-    result2 = solve_part2("inputs.txt")
-    print(f"Part 2: {result2}")
+    print("Day 3: Lobby")
+    print("-" * 30)
+    print(f"Part 1: {solve_part1(input_file)}")
+    print(f"Part 2: {solve_part2(input_file)}")

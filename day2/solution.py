@@ -168,44 +168,11 @@ def solve_part2(input_file):
 
 
 if __name__ == "__main__":
-    # Test with example first
-    example_ranges = [
-        (11, 22),
-        (95, 115),
-        (998, 1012),
-        (1188511880, 1188511890),
-        (222220, 222224),
-        (1698522, 1698528),
-        (446443, 446449),
-        (38593856, 38593862),
-        (565653, 565659),
-        (824824821, 824824827),
-        (2121212118, 2121212124),
-    ]
+    import os
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    input_file = os.path.join(script_dir, "inputs.txt")
 
-    print("=== Part 1 Example ===")
-    example_sum_p1 = 0
-    for start, end in example_ranges:
-        ids = find_invalid_ids_in_range_part1(start, end)
-        if ids:
-            print(f"{start}-{end}: {ids}")
-        example_sum_p1 += sum(ids)
-    print(f"Example sum (Part 1): {example_sum_p1}")
-    print()
-
-    print("=== Part 2 Example ===")
-    example_sum_p2 = 0
-    for start, end in example_ranges:
-        ids = find_invalid_ids_in_range_part2(start, end)
-        if ids:
-            print(f"{start}-{end}: {sorted(ids)}")
-        example_sum_p2 += sum(ids)
-    print(f"Example sum (Part 2): {example_sum_p2}")
-    print()
-
-    # Solve actual puzzle
-    result1 = solve_part1("inputs.txt")
-    print(f"Part 1: {result1}")
-
-    result2 = solve_part2("inputs.txt")
-    print(f"Part 2: {result2}")
+    print("Day 2: Gift Shop")
+    print("-" * 30)
+    print(f"Part 1: {solve_part1(input_file)}")
+    print(f"Part 2: {solve_part2(input_file)}")
